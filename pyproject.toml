@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "ffu-core"
+version = "0.1.0"
+description = "FFu core"
+authors = ["My <84212641+My-MC@users.noreply.github.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.75.1"
+uvicorn = "^0.17.6"
+ffmpegwithpy = {git = "https://github.com/My-MC/ffmpegwithpy.git"}
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+isort = "^5.10.1"
+httpie = "^3.1.0"
+Nuitka = "^0.7.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 119
+exclude = '''
+(
+    migrations
+    | .mypy_cache
+    | .pytest_cache
+    | .tox
+    | .venv
+    | dist
+    | build
+)
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 119

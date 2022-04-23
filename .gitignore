@@ -1,0 +1,13 @@
+# cache
+__pycache__
+
+# venv
+.venv
+venv
+
+# FFmpeg
+ffmpeg.exe
+
+# build
+*.build
+*.dist

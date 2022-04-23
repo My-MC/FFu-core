@@ -1,0 +1,12 @@
+# git
+.git
+
+# cache
+__pycache__
+
+# venv
+venv
+.venv
+
+# FFmpeg
+ffmpeg.exe
