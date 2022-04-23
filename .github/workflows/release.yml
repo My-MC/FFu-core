@@ -22,7 +22,7 @@ jobs:
         uses: abatilo/actions-poetry@v2.1.3
 
       - name: Setup Poetry
-        run:  poery install
+        run:  poetry install
 
       - name: build
         run: |
