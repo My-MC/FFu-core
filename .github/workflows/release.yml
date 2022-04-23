@@ -1,8 +1,10 @@
 name: Build
 
 on:
-  schedule: # execute every 24 hours
-    - cron: "* */24 * * *"
+#  schedule: # execute every 24 hours
+#    - cron: "* */24 * * *"
+  pull_request:
+    types: [ closed ]
 
 jobs:
   build-ubuntu:
