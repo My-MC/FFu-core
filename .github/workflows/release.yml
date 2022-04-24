@@ -1,8 +1,8 @@
 name: Build
 
 on:
-#  schedule: # execute every 24 hours
-#    - cron: "* */24 * * *"
+  schedule: # execute every 24 hours
+    - cron: "* */24 * * *"
   pull_request:
     types: [ closed ]
 
@@ -26,7 +26,7 @@ jobs:
 
       - name: build
         run: |
-          python -m poetry run nuitka --assume-yes-for-downloads --standalone run.py
+         poetry run python -m nuitka --assume-yes-for-downloads --standalone run.py
           mv run.build ffu-core_0.1.0
           zip -r ffu-core_0.1.0.zip ffu-core_0.1.0
 
