@@ -42,7 +42,7 @@ jobs:
         run:  poetry install
 
       - name: build for Linux
-        if: matrix.os == "ubuntu-latest"
+        if: matrix.os == 'ubuntu-latest'
         run: |
           poetry run python -m nuitka --assume-yes-for-downloads --standalone run.py
           cd run.dist
@@ -53,7 +53,7 @@ jobs:
           mv run.dist ${{ steps.version.outputs.filename }}-linux
           zip -r ${{ steps.version.outputs.filename }}-linux.zip ${{ steps.version.outputs.filename }}-linux
       - name: build for Windows
-        if: matrix.os == "windows-latest"
+        if: matrix.os == 'windows-latest'
         shell: bash
         run: |
           poetry run python -m nuitka --assume-yes-for-downloads --standalone run.py
