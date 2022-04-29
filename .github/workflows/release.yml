@@ -65,7 +65,7 @@ jobs:
           mv ffmpeg-n5.0-latest-win64-lgpl-5.0/bin/ffmpeg ffmpeg.exe
           cd ..
           mv run.dist ${{ steps.version.outputs.filename }}-windows
-          zip -r ${{ steps.version.outputs.filename }}-windows.zip ${{ steps.version.outputs.filename }}-windows
+          powershell compress-archive ${{ steps.version.outputs.filename }}-windows ${{ steps.version.outputs.filename }}-windows.zip
 
       - name: GH Release
         uses: softprops/action-gh-release@v0.1.14
