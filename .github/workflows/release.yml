@@ -50,6 +50,7 @@ jobs:
           curl -OL https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n5.0-latest-linux64-lgpl-5.0.tar.xz
           tar -Jxvf ffmpeg-n5.0-latest-linux64-lgpl-5.0.tar.xz
           mv ffmpeg-n5.0-latest-linux64-lgpl-5.0/bin/ffmpeg ffmpeg
+          rm -rf ffmpeg-n5.0-latest-linux64-lgpl-5.0/ ffmpeg-n5.0-latest-linux64-lgpl-5.0.tar.xz
           cd ..
           mv run.dist ${{ steps.version.outputs.filename }}-linux
           zip -r ${{ steps.version.outputs.filename }}-linux.zip ${{ steps.version.outputs.filename }}-linux
@@ -63,6 +64,7 @@ jobs:
           curl -OL https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
           unzip ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
           mv ffmpeg-n5.0-latest-win64-lgpl-5.0/bin/ffmpeg ffmpeg.exe
+          rm -rf ffmpeg-n5.0-latest-win64-lgpl-5.0/ ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
           cd ..
           mv run.dist ${{ steps.version.outputs.filename }}-windows
           powershell compress-archive ${{ steps.version.outputs.filename }}-windows ${{ steps.version.outputs.filename }}-windows.zip
