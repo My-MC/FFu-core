@@ -31,6 +31,8 @@ async def convert_file(model: ConvertModel):
 
     else:
         ffmpeg(unqdir, model.format).ffmpeg()
+        afilename = get(unqdir, model.format).getfilename()
+
     return {"Model": model, "dir": unqdir, "format": model.format, "afterfilename": afilename}
 
 
@@ -54,6 +56,5 @@ async def convert_dir(model: ConvertModel):
 
         else:
             ffmpeg(file, model.format).ffmpeg()
-
 
     return {"Model": model, "filedir": unqdir}
