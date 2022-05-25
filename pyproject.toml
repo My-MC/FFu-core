@@ -7,16 +7,16 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-fastapi = "^0.75.1"
+fastapi = "^0.75.2"
 uvicorn = "^0.17.6"
 ffmpegwithpy = {git = "https://github.com/My-MC/ffmpegwithpy.git"}
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
 isort = "^5.10.1"
-httpie = "^3.1.0"
+httpie = "^3.2.1"
 Nuitka = "^0.7.7"
-pip-licenses = "^3.5.3"
+pip-licenses = "^3.5.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
