@@ -11,7 +11,7 @@
 ビルドしてexe化するには以下のコマンドを実行します。(結構時間がかかります)
 
 ``` bash
-python -m nuitka --standalone --no-prefer-source-code run.py
+python -m nuitka --standalone run.py
 ```
 
 ## Black
