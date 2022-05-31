@@ -45,7 +45,7 @@ jobs:
       - name: build for Linux
         if: matrix.os == 'ubuntu-latest'
         run: |
-          poetry run python -m nuitka --assume-yes-for-downloads --standalone run.py
+          poetry run python -m nuitka --assume-yes-for-downloads --standalone --no-prefer-source-code run.py
           cd run.dist
           curl -OL https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n5.0-latest-linux64-lgpl-5.0.tar.xz
           tar -Jxvf ffmpeg-n5.0-latest-linux64-lgpl-5.0.tar.xz
@@ -55,11 +55,15 @@ jobs:
           mv run.dist ${{ steps.version.outputs.filename }}-linux
           zip -r ${{ steps.version.outputs.filename }}-linux.zip ${{ steps.version.outputs.filename }}-linux
 
+      - name: setup-msbuild
+        if: matrix.os == 'windows-latest'
+        uses: microsoft/setup-msbuild@v1.1
+
       - name: build for Windows
         if: matrix.os == 'windows-latest'
         shell: bash
         run: |
-          poetry run python -m nuitka --assume-yes-for-downloads --standalone run.py
+          poetry run python -m nuitka --assume-yes-for-downloads --standalone --no-prefer-source-code run.py
           cd run.dist
           curl -OL https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
           unzip ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
