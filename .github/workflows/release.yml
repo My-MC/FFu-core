@@ -51,6 +51,7 @@ jobs:
           tar -Jxvf ffmpeg-n5.0-latest-linux64-lgpl-5.0.tar.xz
           mv ffmpeg-n5.0-latest-linux64-lgpl-5.0/bin/ffmpeg ffmpeg
           rm -rf ffmpeg-n5.0-latest-linux64-lgpl-5.0/ ffmpeg-n5.0-latest-linux64-lgpl-5.0.tar.xz
+          poetry run python -m pip-licenses --format=html --with-authors --with-urls --output-file=LICENSES.html
           cd ..
           mv run.dist ${{ steps.version.outputs.filename }}-linux
           zip -r ${{ steps.version.outputs.filename }}-linux.zip ${{ steps.version.outputs.filename }}-linux
@@ -61,17 +62,18 @@ jobs:
 
       - name: build for Windows
         if: matrix.os == 'windows-latest'
-        shell: bash
+        shell: pwsh
         run: |
-          poetry run python -m nuitka --assume-yes-for-downloads --standalone --no-prefer-source-code run.py
+          poetry run python -m nuitka --assume-yes-for-downloads --standalone --no-prefer-source-code --msvc=14.3 --include-package=websockets run.py
           cd run.dist
           curl -OL https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
-          unzip ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
+          Expand-Archive ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
           mv ffmpeg-n5.0-latest-win64-lgpl-5.0/bin/ffmpeg ffmpeg.exe
           rm -rf ffmpeg-n5.0-latest-win64-lgpl-5.0/ ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
+          poetry run python -m pip-licenses  --format=html --with-authors --with-urls --output-file=LICENSES.html
           cd ..
           mv run.dist ${{ steps.version.outputs.filename }}-windows
-          powershell compress-archive ${{ steps.version.outputs.filename }}-windows ${{ steps.version.outputs.filename }}-windows.zip
+          Compress-Archive ${{ steps.version.outputs.filename }}-windows ${{ steps.version.outputs.filename }}-windows.zip
 
       - name: GH Release
         uses: softprops/action-gh-release@v0.1.14
