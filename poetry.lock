@@ -124,18 +124,21 @@ test = ["pytest (>=6.2.4,<7.0.0)", "pytest-cov (>=2.12.0,<4.0.0)", "mypy (==0.91
 
 [[package]]
 name = "ffmpegwithpy"
-version = "0.1.1"
+version = "0.1.2"
 description = "Python FFmpeg wrapper."
 category = "main"
 optional = false
 python-versions = "^3.7"
 develop = false
 
+[package.dependencies]
+pydantic = "^1.9.1"
+
 [package.source]
 type = "git"
 url = "https://github.com/My-MC/ffmpegwithpy.git"
 reference = "master"
-resolved_reference = "a8955042ce4bf26f53b47888c6e41534983bc4ea"
+resolved_reference = "ed5caf6bdc371583c5904480866f7ac8a15806be"
 
 [[package]]
 name = "h11"
@@ -401,7 +404,7 @@ standard = ["websockets (>=10.0)", "httptools (>=0.4.0)", "watchgod (>=0.6)", "p
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "f18bac83cfe464f4293bf4171c64b6d14df38e780f61d1fed95d5b75197772f5"
+content-hash = "ea0aed989416d15546fc80abe4fc13eabc4099a456a024aab4467acba803698c"
 
 [metadata.files]
 anyio = [
