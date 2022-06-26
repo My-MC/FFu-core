@@ -64,7 +64,7 @@ jobs:
         if: matrix.os == 'windows-latest'
         shell: pwsh
         run: |
-          poetry run python -m nuitka --assume-yes-for-downloads --standalone --no-prefer-source-code --msvc=14.3 --include-package=websockets run.py
+          poetry run python -m nuitka --assume-yes-for-downloads --standalone --no-prefer-source-code --msvc=14.3 run.py
           cd run.dist
           curl -OL https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
           Expand-Archive ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
