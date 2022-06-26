@@ -51,7 +51,7 @@ jobs:
           tar -Jxvf ffmpeg-n5.0-latest-linux64-lgpl-5.0.tar.xz
           mv ffmpeg-n5.0-latest-linux64-lgpl-5.0/bin/ffmpeg ffmpeg
           rm -rf ffmpeg-n5.0-latest-linux64-lgpl-5.0/ ffmpeg-n5.0-latest-linux64-lgpl-5.0.tar.xz
-          poetry run pip-licenses --format=html --with-authors --with-urls --output-file=LICENSES.html
+          poetry run python -m pip-licenses --format=html --with-authors --with-urls --output-file=LICENSES.html
           cd ..
           mv run.dist ${{ steps.version.outputs.filename }}-linux
           zip -r ${{ steps.version.outputs.filename }}-linux.zip ${{ steps.version.outputs.filename }}-linux
@@ -70,7 +70,7 @@ jobs:
           Expand-Archive ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
           mv ffmpeg-n5.0-latest-win64-lgpl-5.0/bin/ffmpeg ffmpeg.exe
           rm -rf ffmpeg-n5.0-latest-win64-lgpl-5.0/ ffmpeg-n5.0-latest-win64-lgpl-5.0.zip
-          poetry run pip-licenses  --format=html --with-authors --with-urls --output-file=LICENSES.html
+          poetry run python -m pip-licenses  --format=html --with-authors --with-urls --output-file=LICENSES.html
           cd ..
           mv run.dist ${{ steps.version.outputs.filename }}-windows
           Compress-Archive ${{ steps.version.outputs.filename }}-windows ${{ steps.version.outputs.filename }}-windows.zip
