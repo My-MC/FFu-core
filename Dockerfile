@@ -9,11 +9,12 @@ COPY . /work/
 
 EXPOSE 5050
 
-# Prerequisite Package Installation
 RUN apt-get update && \
     apt-get install -y git wget curl && \
-    apt-get clean -y && \
-    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - && \
+    apt-get clean -y
+
+# Prerequisite Package Installation
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - && \
     cd /work/ && \
     poetry install && \
     curl -OL https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n5.0-latest-linux64-lgpl-5.0.tar.xz && \
