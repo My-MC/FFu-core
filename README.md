@@ -6,7 +6,9 @@
 
 このソフトウェアはPythonと、そのライブラリのFastAPI、Uvicornを使ったAPIサーバーです。
 
-## Build
+## Developing
+
+### Build
 
 ビルドしてexe化するには以下のコマンドを実行します。(結構時間がかかります)
 
@@ -14,19 +16,19 @@
 python -m nuitka --standalone --no-prefer-source-code run.py
 ```
 
-## Black
+### Black
 
 ``` bash
 black .
 ```
 
-## isort
+### isort
 
 ``` bash
 isort .
 ```
 
-## Docker
+### Docker
 
 ``` bash
 docker build --progress=plain -t ffu-core .
